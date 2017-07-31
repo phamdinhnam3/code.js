@@ -1,0 +1,95 @@
+if (!window.Notification)
+{
+    alert('Trình duyệt của bạn không hỗ trợ chức năng này.');
+}
+// Ngược lại trình duyệt có hỗ trợ thông báo
+else
+{
+    // Gửi lời mời cho phép thông báo
+    Notification.requestPermission(function (p) {
+        // Nếu không cho phép
+        if (p === 'denied')
+        {
+            //alert('Bạn đã không cho phép thông báo trên trình duyệt.');
+        }
+        // Ngược lại cho phép
+        else
+        {
+            //alert('Bạn đã cho phép thông báo trên trình duyệt, hãy bắt đầu thử Hiển thị thông báo.');
+        }
+    });
+}
+var n;
+function spawnNotification(theTitle,img) {
+  var options = {
+	  image: img
+  }
+  n = new Notification(theTitle,options);
+}
+function chay(){
+  var myWindow = window.open("", "", "top=860,left=1330,width=200,height=100");
+  var btn = myWindow.document;
+  btn.body.innerHTML = "<input type='text' id='onKeyPress'/><button id='resetCap'>Reset</button>";
+  btn.getElementById("onKeyPress").focus();
+  btn.getElementById("resetCap").onclick = function(){
+    closeCaptcha(0);
+    myWindow.close();
+    n.close();
+  }
+  btn.getElementById("onKeyPress").onkeypress = function(e){
+    setTimeout(function(){
+      document.getElementById("code").value = btn.getElementById("onKeyPress").value;
+    },1)
+    if (e.keyCode == 17){
+      closeCaptcha(0);
+      myWindow.close();
+      n.close();
+    }
+ 		if (e.keyCode == 13) {
+ 		  document.getElementById("code").value = btn.getElementById("onKeyPress").value;
+ 		    sendCaptcha(1);
+ 		    n.close();
+        myWindow.close();
+      }else{
+        IamTyping(e);
+      }
+  };
+}
+
+if (window.location.href == "https://2captcha.com/cabinet/mobile"){
+	var sound = "http://david.guerrero.free.fr/Effects/WeaponHoming.wav";
+  
+	var id = document.getElementById("get_captcha");
+	var title = document.getElementById("session_rate");
+  var a = 0;
+	setInterval(function(){
+	  document.title = title.innerHTML / 1 * 100 + "%";
+	  var str = id.innerHTML;
+	    
+		if(str.indexOf("Your account has been put into the sleeping mode.") != -1){
+			a=0;
+		}else
+		if(id.innerHTML == '<img src="/template/main/images/ajax-loader.gif">'){
+			a=0;
+		}else 
+		if(id.innerHTML == "ERROR"){
+		  closeCaptcha(0);
+		}else{
+		  if(a==0){
+  		  var audio = new Audio(sound);
+  		  audio.loop = false;
+  		  audio.play();
+  		  a=1;
+  		  var ax = document.getElementById("get_captcha").getElementsByTagName("table")[1].getElementsByTagName("tr")[3].getElementsByTagName("div")[0].innerHTML;
+  		  if(ax.indexOf("<div") == -1){
+  		    ax = ax.replace("type only the letters written in","");
+  		  }else{
+  		    ax = title.innerHTML / 1 * 100 + "%";
+  		  }
+  		  spawnNotification(ax,document.getElementById("capimg").getAttribute("src"));
+  		  chay();
+		  }
+		}
+		
+	},1000);
+}
