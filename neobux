@@ -1,0 +1,21 @@
+var a = 1;
+var b = 0;
+var w = "";
+setInterval(function(){
+  if(b == 0){
+    b = 1;
+    hl(1,a);
+    hl(0,a);
+    ggz('',a,55);
+    w = document.getElementById("l"+a).getAttribute("href");
+  }
+},1000);
+setInterval(function(){
+  if(b == 1){
+    b = 2;
+    var x = window.open(w);
+    var set = setInterval(function(){x.close();b = 0; a++;clearInterval(set)},15000);
+    
+  }
+},1000);
+
