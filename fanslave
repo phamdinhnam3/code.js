@@ -1,0 +1,61 @@
+var _face = document.getElementById("silentSucheAktionen");
+var _twit = document.getElementById("silentSucheAktionenTwitter");
+var _goog = document.getElementById("silentSucheAktionenGoogleplus");
+var _traf = document.getElementById("silentSucheAktionenTraffic");
+var _yout = document.getElementById("silentSucheAktionenYoutube");
+var _form = document.getElementsByTagName("form")[3];
+var text = "There are";
+var facelimit = "daily limit";
+var search = "Searching";
+var second = "second;"
+var audio = new Audio('http://zmp3-mp3-s1-te-vnso-tn-8.zadn.vn/8775453ae27e0b20526f/6685318571044539763?key=Kgu4MQQAndoxz8YNMbhZZw&expires=1500764588');
+var thongbao = new Audio('http://zmp3-mp3-s1-te-vnso-tn-8.zadn.vn/8775453ae27e0b20526f/6685318571044539763?key=Kgu4MQQAndoxz8YNMbhZZw&expires=1500764588');
+var t = 0;
+var check = 0;
+setInterval(function(){
+  if(check === 0){
+    if(_face === null){
+      thongbao.play();
+    }
+    
+    t = 0;
+    if(_face.innerHTML.indexOf(text) === -1 && _face.innerHTML.indexOf(search) === -1 && _face.innerHTML.indexOf(facelimit) === -1){
+    	audio.play();
+    	t=1;
+    }
+    if(_twit.innerHTML.indexOf(text) === -1 && _twit.innerHTML.indexOf(search) === -1){
+    	audio.play();
+    	t=1;
+    }
+    if(_goog.innerHTML.indexOf(text) === -1 && _goog.innerHTML.indexOf(search) === -1){
+    	audio.play();
+    	t=1;
+    }
+    if(_traf.innerHTML.indexOf(text) === -1 && _traf.innerHTML.indexOf(search) === -1){
+    	audio.play();
+    	t=1;
+      document.getElementById("silentSucheAktionenTraffic").getElementsByTagName("a")[0].click();
+    }
+    if(_yout.innerHTML.indexOf(text) === -1 && _yout.innerHTML.indexOf(search) === -1){
+    	audio.play();
+    	t=1;
+    }
+  }
+},1000);
+setInterval(function(){
+  if(t===0){
+    if(_face !== null){
+      _form.submit();
+    }
+  }
+},25000);
+window.onfocus = function(){
+  audio.pause();
+  thongbao.pause();
+  check = 1;
+ 
+}
+window.onblur = function(){
+  check = 0;
+}
+
