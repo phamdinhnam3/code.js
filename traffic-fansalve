@@ -1,0 +1,9 @@
+setTimeout(function(){
+  document.getElementsByTagName("form")[0].submit();
+},20000)
+setTimeout(function(){
+    window.close();
+    self.close();
+    parent.close();
+    
+},22000)
