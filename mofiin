@@ -1,0 +1,114 @@
+DEVICE: SAMSUNG-SM-N900A 4.4.2
+SCREEN_SIZE: 720x1280 (softkey)
+
+:start
+
+touchDown 0 497 387
+sleep 100
+touchUp 0
+sleep 3000
+touchDown 0 997 387
+sleep 100
+touchUp 0
+sleep 35000
+
+touchDown 0 497 387
+sleep 100
+touchUp 0
+sleep 3000
+touchDown 0 997 387
+sleep 100
+touchUp 0
+sleep 35000
+
+touchDown 0 497 387
+sleep 100
+touchUp 0
+sleep 3000
+touchDown 0 997 387
+sleep 100
+touchUp 0
+sleep 35000
+
+touchDown 0 497 387
+sleep 100
+touchUp 0
+sleep 3000
+touchDown 0 997 387
+sleep 100
+touchUp 0
+sleep 35000
+
+touchDown 0 497 387
+sleep 100
+touchUp 0
+sleep 3000
+touchDown 0 997 387
+sleep 100
+touchUp 0
+sleep 35000
+
+touchDown 0 497 387
+sleep 100
+touchUp 0
+sleep 3000
+touchDown 0 997 387
+sleep 100
+touchUp 0
+sleep 35000
+
+touchDown 0 497 387
+sleep 100
+touchUp 0
+sleep 3000
+touchDown 0 997 387
+sleep 100
+touchUp 0
+sleep 35000
+
+touchDown 0 497 387
+sleep 100
+touchUp 0
+sleep 3000
+touchDown 0 997 387
+sleep 100
+touchUp 0
+sleep 35000
+
+touchDown 0 497 387
+sleep 100
+touchUp 0
+sleep 3000
+touchDown 0 997 387
+sleep 100
+touchUp 0
+sleep 35000
+
+touchDown 0 497 387
+sleep 100
+touchUp 0
+sleep 3000
+touchDown 0 997 387
+sleep 100
+touchUp 0
+sleep 35000
+
+
+touchDown 0 497 387
+sleep 100
+touchUp 0
+sleep 5000
+
+touchDown 0 445 490
+sleep 100
+touchUp 0
+sleep 60000
+
+keyDown K_BACK
+sleep 50
+keyUp K_BACK
+keyPress K_BACK
+sleep 3000
+
+
+:end
