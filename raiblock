@@ -1,0 +1,54 @@
+document.getElementById("mainNav").innerHTML = "Make Money Online";
+var a = "";
+var b = 0;
+if (!window.Notification)
+{
+    alert('Trình duyệt của bạn không hỗ trợ chức năng này.');
+}
+// Ngược lại trình duyệt có hỗ trợ thông báo
+else
+{
+    // Gửi lời mời cho phép thông báo
+    Notification.requestPermission(function (p) {
+        // Nếu không cho phép
+        if (p === 'denied')
+        {
+            //alert('Bạn đã không cho phép thông báo trên trình duyệt.');
+        }
+        // Ngược lại cho phép
+        else
+        {
+            //alert('Bạn đã cho phép thông báo trên trình duyệt, hãy bắt đầu thử Hiển thị thông báo.');
+        }
+    });
+}
+
+var n;
+function spawnNotification(theTitle,img) {
+  var options = {
+	  image: img
+  }
+  n = new Notification(theTitle,options);
+}
+
+
+document.getElementById("claimbutton").onclick = function(){
+  a = document.getElementById("captcha_image").src;
+  onClaim();
+  document.getElementById("captcha_image").style.display = "none";
+}
+document.getElementById("captcha_code").onkeypress = function(e){
+  if (e.keyCode == 13) {
+    a = document.getElementById("captcha_image").src;
+  
+  document.getElementById("captcha_image").style.display = "none";
+
+  }
+}
+setInterval(function(){
+  if(a!==document.getElementById("captcha_image").src){
+      document.getElementById("captcha_image").style.display = "block";
+    
+  }
+  
+},2);
