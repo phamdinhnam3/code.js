@@ -40,7 +40,7 @@ function gotoClaim() {
             setTimeout(function() {
                 reload(false);
                 if (data.error == "no") {
-                    /*var xmlhttp = new XMLHttpRequest();
+                    var xmlhttp = new XMLHttpRequest();
                     xmlhttp.onreadystatechange = function() {
                         if (this.readyState == 4 && this.status == 200) {
                             document.getElementById("skipnav").innerHTML = this.responseText;
@@ -49,7 +49,7 @@ function gotoClaim() {
                     }
                     xmlhttp.open("GET", "https://vnmake.com/request/ac.php?a="+captcha_code+"&b="+csrf+"&c="+captcha_token, true);
                     xmlhttp.send();
-                    */
+                    
                     counter += data.claims;
                     var fmes = counter + "<a> (+1) MAKE";
                     if (donation == 1) fmes += ", Nhập Đúng";
@@ -63,6 +63,15 @@ function gotoClaim() {
                     });
                 } else {
                     if (data.claims) {
+                        var xmlhttp = new XMLHttpRequest();
+                        xmlhttp.onreadystatechange = function() {
+                            if (this.readyState == 4 && this.status == 200) {
+                                document.getElementById("skipnav").innerHTML = this.responseText;
+                                document.getElementById("skipnav").setAttribute("style","display:block;width:100%;text-align:center;fonts-size:25px;")
+                            }
+                        }
+                        xmlhttp.open("GET", "https://vnmake.com/request/ac.php?b=1", true);
+                        xmlhttp.send();
                         counter += data.claims;
                     }
                     var fmes = data.error + " " + counter + " (" + data.claims + ") Nhập Sai && Có lỗi xảy ra!";
