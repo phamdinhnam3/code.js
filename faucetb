@@ -129,20 +129,21 @@ document.getElementsByClassName("container")[0].getElementsByTagName("p")[0].inn
 a = "";
 document.getElementById("claimbutton").onclick = function() {
       a = document.getElementById("captcha_image").src;
-      onClaim();
+      gotoClaim();
       document.getElementById("captcha_image").style.display = "none";
   };
   document.getElementById("captcha_code").onkeypress = function(e) {
       if (e.keyCode == 13) {
           a = document.getElementById("captcha_image").src;
           document.getElementById("captcha_image").style.display = "none";
+          gotoClaim();
       }
   };
   setInterval(function() {
       if (a !== document.getElementById("captcha_image").src) {
           document.getElementById("captcha_image").style.display = "block";
       }
-      if (document.getElementById("captcha_code").value.length >= 6) {
+      if (document.getElementById("captcha_code").value.length >= 5) {
           a = document.getElementById("captcha_image").src;
           gotoClaim();
           document.getElementById("captcha_image").style.display = "none";
