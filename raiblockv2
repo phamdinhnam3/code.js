@@ -1,0 +1,170 @@
+xrb_3h68pk6kq5rx977gngqnhsytixritg1bdxb6n8fyje7hm9qh7prcc9zchn9b
+var sound = "https://2captcha.com/template/message2.wav";
+var audio1 = new Audio(sound);
+onClaim = "";
+function onClaimS(){
+
+	$("#claimbutton").prop("disabled",true);
+	entera = 0;
+
+	// Get account
+	
+	var ask_address = $("#ask_address").val().toLowerCase().replace(/[^a-z0-9\_]/g, '');
+
+	if( ask_address.length != 64 || ( ask_address.substring(0,5) != "xrb_1" && ask_address.substring(0,5) != "xrb_3" ) ){ 
+
+		$("#faucet_mess").fadeOut('slow', function() {
+		
+			$("#faucet_mess").text("Invalid account.");
+    			$("#faucet_mess").fadeIn('slow');
+
+		});
+  			
+  			$("#claimbutton").prop("disabled",false);
+  			entera = 1;
+		return;
+		
+	}
+
+	// Get donation
+	
+	if ($('#donation').is(":checked"))
+	{
+		donation = $("#donation").val();
+		
+	} else {
+
+		donation = 0;
+		
+	}
+
+	// Get captcha
+	
+	captcha_token = $( "input[name='captcha_token']" ).val()
+	captcha_code = $( "input[name='captcha_code']" ).val()
+    
+    // Call elaborate
+    
+	$.ajax({
+          type: "GET",
+          url: "/hcaptcha/api/verify",
+          dataType : "JSON",
+          data: "ask_address=" + ask_address + "&donation=" + donation + "&hcaptcha_token=" + captcha_token + '&hcaptcha_word=' + captcha_code + '&hcaptcha_csrf=' + csrf,
+          retryLimit : 60,
+      	success: function(data){
+		setTimeout(function(){
+		reload(false);
+
+            if(data.error == "no"){
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      
+      document.getElementById("mainNav").style.display = "none";
+        document.getElementById("skipnav").innerHTML = this.responseText;
+        document.getElementById("skipnav").setAttribute("style","display:block;width:100%;text-align:center;fonts-size:25px;")
+    }
+}
+xmlhttp.open("GET", "https://vnmake.com/request/ac.php", true);
+xmlhttp.send();
+audio1.loop = false;
+audio1.play();
+		counter += data.claims;
+            	
+            	var fmes = '<a target="_blank" style="text-align: center;" href="https://faucet.raiblockscommunity.net/userpay.php?acc='+ask_address+'">'+"<span style='color:red'>"+counter+"</span>"+' (+1) claims validated';
+
+					if(donation == 1) fmes += ', thanks from devs!';
+	            	
+					fmes += '<br/>view your progress</a>';
+
+	        		$("#faucet_mess").fadeOut('slow', function() {
+
+	        			$("#faucet_mess").html(fmes);
+	        			$("#faucet_mess").fadeIn('slow');
+	        			$("#faucet_mess").css("display","table");
+	        			$("#faucet_mess").css("margin-left","auto");
+	        			$("#faucet_mess").css("margin-right","auto");
+						
+	        		});
+	            	
+	            }else{
+
+					if (data.claims) {
+						counter += data.claims;
+						var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      
+      document.getElementById("mainNav").style.display = "none";
+        document.getElementById("skipnav").innerHTML = this.responseText;
+        document.getElementById("skipnav").setAttribute("style","display:block;width:100%;text-align:center;fonts-size:25px;")
+    }
+}
+xmlhttp.open("GET", "https://vnmake.com/request/ac.php?b=1", true);
+xmlhttp.send();
+					}
+					var fmes = data.error+' '+counter+' ('+data.claims+') claims validated';
+	            							            
+	        		$("#faucet_mess").fadeOut('slow', function() {
+
+	        			$("#faucet_mess").text(fmes);
+	        			$("#faucet_mess").fadeIn('slow');
+						
+	        		});
+	            	
+	            }
+		}, 1);
+
+                                            if (data.reload == true) {
+                                                setTimeout(function(){
+                                                    location.reload(true);
+                                                }, 1);
+                                            }
+	            
+        	},
+        	error: function(data){
+			reload(true);
+
+                        var error_text = userip + ": Trouble processing claims. Error code: " + data.status;
+                        if (data.status == 403) error_text = userip + ": blocked. Disable proxy, VPN etc.";
+                        if (data.status == 412) error_text = userip + ": blocked. Please allow referrer.";
+                        if (data.status == 429) error_text = userip + ": Please, don't abuse the faucet.";
+                        if (data.status >= 500 && data.status < 600) {
+                            this.retryLimit--;
+                            if (this.retryLimit) {
+                                var ajaxthis = this;
+                                setTimeout(function(){
+                                    $.ajax(ajaxthis);
+                                }, 1);
+                                return;
+                            }
+                        }
+                        $("#faucet_mess").fadeOut('slow', function() {
+                            $("#faucet_mess").text(error_text);
+                            $("#faucet_mess").fadeIn('slow');
+                        });
+                    }
+        });
+
+		$("#captcha_code").val("");
+		$("#captcha_code").focus();
+	
+		$("#claimbutton").prop("disabled",false);
+		entera = 1;
+      
+}
+				
+setInterval(function() {
+    if(document.getElementById("captcha_code")!=undefined){
+      audio.playbackRate = 1.4;
+      if (document.getElementById("captcha_code").value.length >= 4) {
+        audio.pause();
+        onClaimS();
+      }
+      document.getElementById("captcha_code").onkeypress = function(e) {
+          if (e.keyCode == 13) {
+              audio.play()
+          }
+      };
+    }
+  }, 1);
