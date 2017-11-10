@@ -2,16 +2,14 @@ document.getElementsByClassName("video-header-tab-a")[1].setAttribute("href",doc
 function clickC(answer,url){
  for(i=0;i<=3;i++){
    if(document.getElementsByClassName("border-btn")[i].innerHTML == answer){
-     document.getElementsByClassName("border-btn")[i].click();
+      document.getElementsByClassName("border-btn")[i].click();
+      setTimeout(function(){document.getElementById("nextvideo").click();},1000);
    }
  }
 }
 setInterval(function(){
-  if(document.getElementsByClassName("themeBtn") != undefined){
+  if(document.getElementsByClassName("themeBtn")[0].innerHTML != "Next Video"){
     document.getElementsByClassName("themeBtn")[0].click();
-  }
-  if(document.getElementsByClassName("post-answering")[0].getAttribute("style") == "display: none;"){
-    document.getElementById("nextvideo").click();
   }
   if(document.getElementsByClassName("video-page-current-duration")[0].innerHTML == document.getElementsByClassName("video-page-total-duration")[0].innerHTML){
     clickC("Vlog","https://www.youtube.com/embed/q3y4gUm9OjA?enablejsapi=1&playsinline=1&autoplay=false&controls=0&rel=0&showinfo=0&egm=0&showsearch=0&modestbranding=1&iv_load_policy=3&disablekb=1&loop=0&start=0");
@@ -23,5 +21,6 @@ setInterval(function(){
     
     clickC("Pop","https://www.youtube.com/embed/VbPUxJ7QDGk?enablejsapi=1&playsinline=1&autoplay=false&controls=0&rel=0&showinfo=0&egm=0&showsearch=0&modestbranding=1&iv_load_policy=3&disablekb=1&loop=0&start=0");
     
+    clickC("Pop","https://www.youtube.com/embed/q3y4gUm9OjA?enablejsapi=1&playsinline=1&autoplay=false&controls=0&rel=0&showinfo=0&egm=0&showsearch=0&modestbranding=1&iv_load_policy=3&disablekb=1&loop=0&start=0");
   }
 },1000);
