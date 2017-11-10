@@ -1,1 +1,5 @@
-document.getElementsByClassName("ytp-large-play-button")[0].click();
+setTimeout(function(){document.getElementsByClassName("ytp-large-play-button")[0].click();},3000)
+var vid = document.getElementsByClassName("video-stream html5-main-video")[0];
+vid.onpause = function() {
+    document.getElementsByClassName("ytp-large-play-button")[0].click();
+};
