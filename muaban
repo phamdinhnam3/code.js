@@ -29,7 +29,7 @@ if(c==""){
 
 setInterval(function(){
 	b++;
-    if(a+1 == c){
+    if(a+1 <= c){
     	setCookie("trang",1,3600);
     	alert("Gia Han Thanh Cong");
     }
