@@ -43,4 +43,4 @@ setInterval(function(){
 	if(a>=b){
 		document.getElementsByClassName("btn-group")[b].getElementsByTagName("a")[3].click();
     }
-},1);
+},100);
