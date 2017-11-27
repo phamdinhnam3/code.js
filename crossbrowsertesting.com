@@ -3,6 +3,9 @@ if(location.href == "https://crossbrowsertesting.com/freetrial"){
   document.getElementsByTagName("input")[1].value = "asd123123asd";
   $('#signup-form').submit();
 }
+if(location.href == "https://crossbrowsertesting.com/trial_started"){
+  location.href = "https://app.crossbrowsertesting.com/livetests/run?url=http:%2F%2Flink.pe.hu&browser=Win8%7CChrome62x64%7CResponsive%20Mode";
+}
 
 ////////////////////////////
 if(location.href == "https://app.crossbrowsertesting.com/trial_started"){
