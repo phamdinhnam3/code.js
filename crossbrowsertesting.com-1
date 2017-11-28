@@ -6,7 +6,7 @@ if(location.href == "https://crossbrowsertesting.com/freetrial"){
 if(location.href == "https://crossbrowsertesting.com/trial_started"){
   location.href = "https://app.crossbrowsertesting.com/livetests/run?url=http:%2F%2Flink.pe.hu?a="+aa+"&browser=Win8%7CChrome62x64%7CResponsive%20Mode";
 }
-
+https://app.crossbrowsertesting.com/livetests/run?url=http:%2F%2Flink.pe.hu%3Fa%3D4&browser=Mac10.9%7CChrome62x64%7CResponsive%20Mode
 ////////////////////////////
 var aa ="";
 if(location.href == "https://app.crossbrowsertesting.com/trial_started"){
