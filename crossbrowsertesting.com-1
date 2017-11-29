@@ -10,9 +10,9 @@ if(location.href == "https://crossbrowsertesting.com/trial_started"){
 ////////////////////////////
 var aa ="";
 if(location.href == "https://app.crossbrowsertesting.com/trial_started"){
-  location.href = "https://app.crossbrowsertesting.com/livetests/run?url=http:%2F%2Flink.pe.hu%3Fa%3D"+aa+"&browser=Mac10.9%7CChrome62x64%7CResponsive%20Mode";
+  location.href = "https://app.crossbrowsertesting.com/livetests/run?url=http:%2F%2Flink.pe.hu%3Fa%3D&browser=Win8%7CChrome62x64%7CResponsive%20Mode";
 }
-if(location.href == "https://app.crossbrowsertesting.com/livetests/run?url=http:%2F%2Flink.pe.hu%3Fa%3D"+aa+"&browser=Mac10.9%7CChrome62x64%7CResponsive%20Mode"){
+if(location.href == "https://app.crossbrowsertesting.com/livetests/run?url=http:%2F%2Flink.pe.hu%3Fa%3D&browser=Win8%7CChrome62x64%7CResponsive%20Mode"){
   setInterval(function(){
     if(document.getElementsByClassName("live-test-header")[0]!=undefined){
       document.getElementsByTagName("button")[1].click();
@@ -34,7 +34,7 @@ if(time >500){
   }
   if(document.getElementsByClassName("modal-footer")[0].innerHTML!=undefined){
  
-    location.href = "https://app.crossbrowsertesting.com/livetests/run?url=http:%2F%2Flink.pe.hu%3Fa%3D"+aa+"&browser=Mac10.9%7CChrome62x64%7CResponsive%20Mode";
+    location.href = "https://app.crossbrowsertesting.com/livetests/run?url=http:%2F%2Flink.pe.hu%3Fa%3D&browser=Win8%7CChrome62x64%7CResponsive%20Mode";
   }
 },1000)
 
