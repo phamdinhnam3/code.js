@@ -1,5 +1,5 @@
 if(location.href == "https://crossbrowsertesting.com/freetrial"){
-  document.getElementsByTagName("input")[0].value = "N"+Math.floor((Math.random() * 10000000000) + 1)+"@gmail.com";
+  document.getElementsByTagName("input")[0].value = "A"+Math.floor((Math.random() * 10000000000) + 1)+"@gmail.com";
   document.getElementsByTagName("input")[1].value = "asd123123asd";
   $('#signup-form').submit();
 }
