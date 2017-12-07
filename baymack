@@ -6,16 +6,36 @@ setInterval(function(){
     a++;
     if(document.getElementsByClassName("video-page-current-duration")[0].innerHTML == document.getElementsByClassName("video-page-total-duration")[0].innerHTML){
       if(a>10000){
-        alert();
-        a=0;
-        checkClick = true;
+        if(document.getElementsByClassName("captchaDivs")[0].style.display == "none"){
+          if(document.getElementsByClassName("border-btn")[0].innerHTML == "None"){
+            document.getElementsByClassName("border-btn")[0].click();
+            checkClick = true;
+            a=0;
+          }else if(document.getElementsByClassName("border-btn")[1].innerHTML == "None"){
+            document.getElementsByClassName("border-btn")[1].click();
+            checkClick = true;
+            a=0;
+          }else if(document.getElementsByClassName("border-btn")[2].innerHTML == "None"){
+            document.getElementsByClassName("border-btn")[2].click();
+            checkClick = true;
+            a=0;
+          }else if(document.getElementsByClassName("border-btn")[3].innerHTML == "None"){
+            document.getElementsByClassName("border-btn")[3].click();
+            checkClick = true;
+            a=0;
+          }else{
+            alert();
+            a=0;
+            checkClick = true;
+          }
+        }  
       }
     }
     //traloixongclick
     if(document.getElementsByClassName("post-answering")[0].style.display != "none"){
       if(checkClick){
-        document.getElementById("nextvideo").click();
-        location.reload();
+        //document.getElementById("nextvideo").click();
+        setTimeout(function(){location.reload();},3000)
         checkClick = false;
       }
     }
