@@ -28,7 +28,11 @@ setInterval(function(){
             a=0;
             checkClick = true;
           }
-        }  
+        } else{
+          alert();
+          a=0;
+          checkClick = true;
+        } 
       }
     }
     //traloixongclick
