@@ -1,0 +1,19 @@
+captcha = "";
+thongbao = "";
+if(location.href=="https://ebonus.gg/earn-coins/watch"){
+  setInterval(function(){
+    if(document.getElementsByClassName("btn-default")[0].innerHTML!="Next Video" && captcha === ""){
+      captcha = "1";
+      alert("");
+    }
+    if(document.getElementsByClassName("confirm")[0] !== undefined){
+      document.getElementsByClassName("confirm")[0].click()}
+  },3000);
+
+  setInterval(function(){
+    if(document.getElementsByClassName("adsbox")[0]!==undefined && thongbao === ""){
+      document.getElementsByClassName("adsbox")[0].click();
+      thongbao="1";
+    }
+  },10)
+}
