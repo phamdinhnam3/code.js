@@ -1,0 +1,11 @@
+
+
+setInterval(function(){
+  if(location.href == "https://bitcoinspinner.io/spin"){
+    document.getElementsByClassName("handle")[0].style.display = "none";
+  }
+  
+  if(location.href.indexOf("https://bitcoinspinner.io/faucet") != -1){
+    setTimeout(function(){document.getElementsByClassName("btn-primary")[0].click();},1000);
+  }
+},1000);
