@@ -37,7 +37,7 @@ setInterval(function(){
     	b=0;
         c++;
         setCookie("trang",c,3600);
-        location.href = "https://bnetapp.muaban.net/#/classifieds/online;kt=1;kw=;cp="+c+";ps=10;ctid=-1;catCode=;ctyId=-1;phone=;status=-1;cus=0;agent=ODcwZmExNzUtMmQ4OS00MjA0LTgwNWEtNGRmMGY1ODljNWYy";
+        location.href = "https://bnetapp.muaban.net/classifieds/online;kt=1;kw=;cp="+c+";ps=10;ctid=-1;catCode=;ctyId=-1;phone=;status=-1;cus=0;agent=ODcwZmExNzUtMmQ4OS00MjA0LTgwNWEtNGRmMGY1ODljNWYy";
         
     }
 	if(a>=b){
