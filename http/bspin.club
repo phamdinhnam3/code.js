@@ -1,0 +1,10 @@
+document.getElementsByClassName("ad_728")[0].style.display = "none";
+document.getElementsByClassName("ad_728")[1].style.display = "none";
+document.getElementsByClassName("ad_300")[0].style.display = "none";
+document.getElementsByClassName("ad_300")[1].style.display = "none";
+document.getElementsByTagName("nav")[0].style.display = "none";
+setInterval(function(){
+  if(document.getElementsByClassName("circle-countdown")[0].innerHTML == "3"){
+    setTimeout(function(){document.getElementsByClassName("btn-primary")[0].click();},3000);
+  }
+},1000);
